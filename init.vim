@@ -1,8 +1,11 @@
 "键盘映射
 nmap w :w<cr>
 nmap q :q<cr>
-inoremap hh <Esc>
+inoremap jj <Esc>
+nmap <F1> :e ~/.config/nvim/init.vim<cr>
 nmap s :source ~/.config/nvim/init.vim<cr>
+
+
 let g:python3_host_prog = '/usr/local/opt/python@3.9/bin/python3.9'
 set nocompatible
 let mapleader = " "
@@ -12,6 +15,7 @@ filetype plugin on
 filetype plugin indent on
 "设置行号
 set number
+set relativenumber
 set fileformat=unix
 "显示命令
 set showcmd
@@ -37,10 +41,18 @@ Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins', 'for' :['python']}
 Plug 'luochen1990/rainbow'
 Plug 'mbbill/undotree'
 Plug 'airblade/vim-gitgutter'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown', {'for' :['markdown']}
+Plug 'iamcco/markdown-preview.nvim', {'for' :['markdown']}
+Plug 'preservim/nerdcommenter'
+Plug 'Yggdroot/indentLine'
+Plug 'vim-ctrlspace/vim-ctrlspace'
+
 
 call plug#end()
 
-
+colorscheme dracula
 
 "coc
 inoremap <silent><expr> <TAB>
@@ -78,10 +90,12 @@ endfunction
 
 let g:coc_snippet_next = '<tab>'
 
+
 "coc explorer"
 nnoremap <leader>e :CocCommand explorer<CR>
 
 "airline
+let g:airline_theme='behelit'
 
 "vim-easymotion
 map <Leader>l <Plug>(easymotion-bd-jk)
@@ -95,3 +109,12 @@ nnoremap <F5> :UndotreeToggle<CR>
 
 "rainbow
 let g:rainbow_active = 1
+
+"markdown
+let g:mkdp_auto_start = 0
+let g:mkdp_auto_close = 1
+let g:mkdp_browser = 'Google Chrome'
+
+"indentLine
+let g:indentLine_color_term = 239
+let g:indentLine_defaultGroup = 'SpecialKey'
