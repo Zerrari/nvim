@@ -1,12 +1,9 @@
 "键盘映射
-nmap <C-w> :w<cr>
-nmap <C-q> :q<cr>
+nmap W :w<cr>
+nmap Q :q<cr>
 inoremap jj <Esc>
 nmap <F1> :e ~/.config/nvim/init.vim<cr>
-nmap <C-s> :source ~/.config/nvim/init.vim<cr>
-
-nnoremap <C-t> :tabnew<cr>
-
+nmap S :source ~/.config/nvim/init.vim<cr>
 
 let g:python3_host_prog = '/usr/local/opt/python@3.9/bin/python3.9'
 let mapleader = " "
@@ -16,6 +13,7 @@ filetype indent on
 filetype plugin on
 filetype plugin indent on
 
+set wrap
 set encoding=UTF-8
 set number
 set nrformats=
@@ -32,8 +30,6 @@ set ruler
 set smartindent
 set autoindent
 set tabstop=4
-
-
 
 call plug#begin('~/.config/nvim/plugged')
 
@@ -59,6 +55,11 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'romgrk/barbar.nvim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
+Plug 'dhruvasagar/vim-table-mode',{'for' :['markdown']}
+Plug 'gcmt/wildfire.vim'
+Plug 'vim-scripts/taglist.vim'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 call plug#end()
 
@@ -99,7 +100,6 @@ function! s:check_back_space() abort
 endfunction
 
 let g:coc_snippet_next = '<tab>'
-
 
 "nerdtree
 nnoremap <C-n> :NERDTreeToggle<CR>
@@ -145,3 +145,25 @@ nnoremap <silent>    <leader>< :BufferMovePrevious<CR>
 nnoremap <silent>    <leader>> :BufferMoveNext<CR>
 " Close buffer
 nnoremap <silent>    <leader>c :BufferClose<CR>
+nnoremap <silent>    <leader>a :BufferPick<CR>
+
+"vim-table-mode
+function! s:isAtStartOfLine(mapping)
+  let text_before_cursor = getline('.')[0 : col('.')-1]
+  let mapping_pattern = '\V' . escape(a:mapping, '\')
+  let comment_pattern = '\V' . escape(substitute(&l:commentstring, '%s.*$', '', ''), '\')
+  return (text_before_cursor =~? '^' . ('\v(' . comment_pattern . '\v)?') . '\s*\v' . mapping_pattern . '\v$')
+endfunction
+
+inoreabbrev <expr> <bar><bar>
+          \ <SID>isAtStartOfLine('\|\|') ?
+          \ '<c-o>:TableModeEnable<cr><bar><space><bar><left><left>' : '<bar><bar>'
+inoreabbrev <expr> __
+          \ <SID>isAtStartOfLine('__') ?
+          \ '<c-o>:silent! TableModeDisable<cr>' : '__'
+
+"wildfire
+nmap <leader>s <Plug>(wildfire-quick-select)
+
+"nerdtree-git-plugin
+let g:NERDTreeGitStatusUseNerdFonts = 1
