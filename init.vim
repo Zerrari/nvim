@@ -5,6 +5,11 @@ inoremap jj <Esc>
 nmap <F1> :e ~/.config/nvim/init.vim<cr>
 nmap S :source ~/.config/nvim/init.vim<cr>
 
+map H 5h
+map L 5l
+map K 5k
+map J 5j 
+
 let g:python3_host_prog = '/usr/local/opt/python@3.9/bin/python3.9'
 let mapleader = " "
 
@@ -36,7 +41,6 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'mg979/vim-xtabline'
 Plug 'jiangmiao/auto-pairs'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
@@ -50,14 +54,13 @@ Plug 'plasticboy/vim-markdown', {'for' :['markdown']}
 Plug 'iamcco/markdown-preview.nvim', {'for' :['markdown']}
 Plug 'preservim/nerdcommenter'
 Plug 'Yggdroot/indentLine'
-Plug 'preservim/nerdtree'
-Plug 'ryanoasis/vim-devicons'
+Plug 'preservim/nerdtree', {'on':'NERDTreeToggle'}
 Plug 'romgrk/barbar.nvim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'dhruvasagar/vim-table-mode',{'for' :['markdown']}
 Plug 'gcmt/wildfire.vim'
-Plug 'vim-scripts/taglist.vim'
+" Plug 'vim-scripts/taglist.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
@@ -102,11 +105,11 @@ endfunction
 let g:coc_snippet_next = '<tab>'
 
 "nerdtree
-nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+map tt :NERDTreeToggle<CR>
+map <C-f> :NERDTreeFind<CR>
 
 "airline
-let g:airline_theme='behelit'
+let g:airline_theme='luna'
 
 "vim-easymotion
 map <Leader>l <Plug>(easymotion-bd-jk)
@@ -135,7 +138,9 @@ let bufferline = get(g:, 'bufferline', {})
 let bufferline.animation = v:true
 let bufferline.icons = v:true
 let bufferline.auto_hide = v:false
-let bufferline.icon_custom_colors = v:false
+let bufferline.icon_custom_colors = v:true
+let bufferline.clickable = v:true
+let bufferline.maximum_padding = 1
 
 " Move to previous/next
 nnoremap <silent>    <leader>, :BufferPrevious<CR>
@@ -167,3 +172,40 @@ nmap <leader>s <Plug>(wildfire-quick-select)
 
 "nerdtree-git-plugin
 let g:NERDTreeGitStatusUseNerdFonts = 1
+
+"vim-multiple-cursors
+let g:multi_cursor_use_default_mapping=0
+
+" Default mapping
+let g:multi_cursor_start_word_key      = '<C-n>'
+let g:multi_cursor_select_all_word_key = '<A-n>'
+let g:multi_cursor_start_key           = 'g<C-n>'
+let g:multi_cursor_select_all_key      = 'g<A-n>'
+let g:multi_cursor_next_key            = '<C-n>'
+let g:multi_cursor_prev_key            = '<C-p>'
+let g:multi_cursor_skip_key            = '<C-x>'
+let g:multi_cursor_quit_key            = '<Esc>'
+
+"rainbow
+let g:rainbow_conf = {
+\	'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+\	'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+\	'operators': '_,_',
+\	'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+\'separately': {
+\		'*': {},
+\		'tex': {
+\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+\		},
+\		'lisp': {
+\			'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+\		},
+\		'vim': {
+\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+\		},
+\		'html': {
+\			'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+\		},
+\		'css': 0,
+\	}
+\}
