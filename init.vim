@@ -19,6 +19,8 @@ filetype plugin on
 filetype plugin indent on
 
 set wrap
+set ignorecase
+set smartcase
 set encoding=UTF-8
 set number
 set nrformats=
@@ -50,7 +52,7 @@ Plug 'luochen1990/rainbow'
 Plug 'airblade/vim-gitgutter'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown', {'for' :['markdown']}
+" Plug 'plasticboy/vim-markdown', {'for' :['markdown']}
 Plug 'iamcco/markdown-preview.nvim', {'for' :['markdown']}
 Plug 'preservim/nerdcommenter'
 Plug 'Yggdroot/indentLine'
@@ -63,6 +65,9 @@ Plug 'gcmt/wildfire.vim'
 " Plug 'vim-scripts/taglist.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'junegunn/goyo.vim'
+" Plug 'sheerun/vim-polyglot'
+
 
 call plug#end()
 
@@ -209,3 +214,15 @@ let g:rainbow_conf = {
 \		'css': 0,
 \	}
 \}
+
+" markdown 
+autocmd Filetype markdown inoremap <buffer> <silent> ;, <++>
+autocmd Filetype markdown inoremap <buffer> <silent> ;f <Esc>/<++><CR>:nohlsearch<CR>c4l
+autocmd Filetype markdown inoremap <buffer> <silent> ;b **** <++><Esc>F*hi
+autocmd Filetype markdown inoremap <buffer> <silent> ;p ![](<++>) <Enter><++><Esc>kF[a
+autocmd Filetype markdown inoremap <buffer> <silent> ;a [](<++>) <Enter><++><Esc>kF[a
+autocmd Filetype markdown inoremap <buffer> <silent> ;h #  
+autocmd Filetype markdown inoremap <buffer> <silent> ;h2 ## 
+autocmd Filetype markdown inoremap <buffer> <silent> ;h3 ### 
+autocmd Filetype markdown inoremap <buffer> <silent> ;c ```<Enter>```<Esc>O
+
