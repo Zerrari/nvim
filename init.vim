@@ -1,4 +1,3 @@
-"键盘映射
 nmap W :w<cr>
 nmap Q :q<cr>
 inoremap jj <Esc>
@@ -16,8 +15,14 @@ let mapleader = " "
 filetype on
 filetype indent on
 filetype plugin on
-filetype plugin indent on
 
+set history=500
+set autoread
+au FocusGained,BufEnter * checktime
+
+
+set wildmenu
+set cmdheight=1
 set wrap
 set ignorecase
 set smartcase
@@ -30,13 +35,30 @@ set fileformat=unix
 set showcmd
 syntax on
 set showmatch
+set matchtime=2
 set cursorline
 set nobackup
+set nowb
 set noswapfile
 set ruler
-set smartindent
-set autoindent
+set hid
+set scrolloff=7
+set nohlsearch
+set incsearch
+set hid
+set lazyredraw
+
+" 缩进
 set tabstop=4
+set shiftwidth=4
+set autoindent
+set softtabstop=4
+set cindent
+set expandtab
+set smarttab
+
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
 
 call plug#begin('~/.config/nvim/plugged')
 
@@ -52,21 +74,14 @@ Plug 'luochen1990/rainbow'
 Plug 'airblade/vim-gitgutter'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'godlygeek/tabular'
-" Plug 'plasticboy/vim-markdown', {'for' :['markdown']}
 Plug 'iamcco/markdown-preview.nvim', {'for' :['markdown']}
 Plug 'preservim/nerdcommenter'
 Plug 'Yggdroot/indentLine'
-Plug 'preservim/nerdtree', {'on':'NERDTreeToggle'}
 Plug 'romgrk/barbar.nvim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'dhruvasagar/vim-table-mode',{'for' :['markdown']}
-Plug 'gcmt/wildfire.vim'
-" Plug 'vim-scripts/taglist.vim'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'junegunn/goyo.vim'
-" Plug 'sheerun/vim-polyglot'
+Plug 'kien/ctrlp.vim'
 
 
 call plug#end()
@@ -109,10 +124,6 @@ endfunction
 
 let g:coc_snippet_next = '<tab>'
 
-"nerdtree
-map tt :NERDTreeToggle<CR>
-map <C-f> :NERDTreeFind<CR>
-
 "airline
 let g:airline_theme='luna'
 
@@ -122,9 +133,6 @@ nmap <Leader>l <Plug>(easymotion-overwin-line)
 
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
-
-"undotree
-nnoremap <F2> :UndotreeToggle<CR>
 
 "rainbow
 let g:rainbow_active = 1
@@ -172,20 +180,11 @@ inoreabbrev <expr> __
           \ <SID>isAtStartOfLine('__') ?
           \ '<c-o>:silent! TableModeDisable<cr>' : '__'
 
-"wildfire
-nmap <leader>s <Plug>(wildfire-quick-select)
-
-"nerdtree-git-plugin
-let g:NERDTreeGitStatusUseNerdFonts = 1
-
 "vim-multiple-cursors
 let g:multi_cursor_use_default_mapping=0
 
 " Default mapping
 let g:multi_cursor_start_word_key      = '<C-n>'
-let g:multi_cursor_select_all_word_key = '<A-n>'
-let g:multi_cursor_start_key           = 'g<C-n>'
-let g:multi_cursor_select_all_key      = 'g<A-n>'
 let g:multi_cursor_next_key            = '<C-n>'
 let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
@@ -225,4 +224,5 @@ autocmd Filetype markdown inoremap <buffer> <silent> ;h #
 autocmd Filetype markdown inoremap <buffer> <silent> ;h2 ## 
 autocmd Filetype markdown inoremap <buffer> <silent> ;h3 ### 
 autocmd Filetype markdown inoremap <buffer> <silent> ;c ```<Enter>```<Esc>O
+autocmd Filetype markdown inoremap <buffer> <silent> ;s ***<Enter>
 
