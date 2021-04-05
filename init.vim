@@ -4,10 +4,20 @@ inoremap jj <Esc>
 nmap <F1> :e ~/.config/nvim/init.vim<cr>
 nmap S :source ~/.config/nvim/init.vim<cr>
 
-map H 5h
-map L 5l
 map K 5k
 map J 5j 
+noremap H ^
+noremap L $
+
+nnoremap ; :
+
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+
+map <Left> <Nop>
+map <Right> <Nop>
+map <Up> <Nop>
+map <Down> <Nop>
 
 let g:python3_host_prog = '/usr/local/opt/python@3.9/bin/python3.9'
 let mapleader = " "
@@ -16,11 +26,13 @@ filetype on
 filetype indent on
 filetype plugin on
 
+syntax on
+
 set history=500
 set autoread
 au FocusGained,BufEnter * checktime
 
-
+set mouse=
 set wildmenu
 set cmdheight=1
 set wrap
@@ -33,7 +45,6 @@ set nocompatible
 set relativenumber
 set fileformat=unix
 set showcmd
-syntax on
 set showmatch
 set matchtime=2
 set cursorline
@@ -47,6 +58,7 @@ set nohlsearch
 set incsearch
 set hid
 set lazyredraw
+set background=dark
 
 " 缩进
 set tabstop=4
@@ -59,6 +71,9 @@ set smarttab
 
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
+autocmd BufNewFile *.c 0r ~/.config/nvim/skeleton/skeleton.c
+autocmd BufNewFile *.sh 0r ~/.config/nvim/skeleton/skeleton.sh
+autocmd BufNewFile * normal G
 
 call plug#begin('~/.config/nvim/plugged')
 
@@ -66,7 +81,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jiangmiao/auto-pairs'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins', 'for' :['python']}
@@ -82,11 +96,24 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'dhruvasagar/vim-table-mode',{'for' :['markdown']}
 Plug 'kien/ctrlp.vim'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+"Plug 'vim-syntastic/syntastic'
+"
+"auto completion
 
+"syntax check
+"Plug 'w0rp/ale'
+
+"syntax highlight
+"Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
 colorscheme dracula
+
+"ale
+"let b:ale_fixers = [ 'pyright' ]
+
 
 "coc
 inoremap <silent><expr> <TAB>
@@ -101,9 +128,6 @@ function! s:check_back_space() abort
 endfunction
 
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
 
 "coc-snippets
 imap <C-l> <Plug>(coc-snippets-expand)
@@ -123,6 +147,7 @@ function! s:check_back_space() abort
 endfunction
 
 let g:coc_snippet_next = '<tab>'
+
 
 "airline
 let g:airline_theme='luna'
@@ -180,15 +205,6 @@ inoreabbrev <expr> __
           \ <SID>isAtStartOfLine('__') ?
           \ '<c-o>:silent! TableModeDisable<cr>' : '__'
 
-"vim-multiple-cursors
-let g:multi_cursor_use_default_mapping=0
-
-" Default mapping
-let g:multi_cursor_start_word_key      = '<C-n>'
-let g:multi_cursor_next_key            = '<C-n>'
-let g:multi_cursor_prev_key            = '<C-p>'
-let g:multi_cursor_skip_key            = '<C-x>'
-let g:multi_cursor_quit_key            = '<Esc>'
 
 "rainbow
 let g:rainbow_conf = {

@@ -1,16 +1,15 @@
-# neovim
-## intro
-+ 
-+
-+
+# Neovim
+## Install
 
-		
-## plug
+First
+```
+$ chmod +x install.sh
+$ ./install.sh
+```
 
-## keymap
-| name | address | grade |
-|------|---------|-------|
-| jk   | ad      | ada   |
-| ad   | ad      | asda  |
-| asda | sajd    | jdsaj |
+Then
 
+```
+$ nvim
+$ :PlugInstall
+```
