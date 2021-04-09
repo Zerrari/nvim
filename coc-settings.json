@@ -6,7 +6,20 @@
     "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
   }
 },
+
+"jedi.enable": true,
+"jedi.markupKindPreferred": "plaintext",
+"jedi.jediSettings.autoImportModules": [],
+"jedi.executable.command": "/Users/zerrari/Library/Python/3.8/bin/jedi-language-server",
+"jedi.executable.args": [],
+"jedi.completion.disableSnippets": false,
+"jedi.diagnostics.enable": true,
+"jedi.diagnostics.didOpen": true,
+"jedi.diagnostics.didChange": true,
+"jedi.diagnostics.didSave": true,
+
 "snippets.ultisnips.directories": [
   "$HOME/.config/nvim/Ultisnips/"
 ]
 }
+

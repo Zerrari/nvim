@@ -69,6 +69,9 @@ set cindent
 set expandtab
 set smarttab
 
+"polyglot
+let g:polyglot_disabled = ['python.plugin']
+
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 autocmd BufNewFile *.c 0r ~/.config/nvim/skeleton/skeleton.c
@@ -77,7 +80,6 @@ autocmd BufNewFile * normal G
 
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jiangmiao/auto-pairs'
@@ -97,56 +99,24 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'dhruvasagar/vim-table-mode',{'for' :['markdown']}
 Plug 'kien/ctrlp.vim'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-"Plug 'vim-syntastic/syntastic'
-"
-"auto completion
+Plug 'thinca/vim-quickrun'
+Plug 'preservim/tagbar'
+Plug 'sheerun/vim-polyglot'
+Plug 'dense-analysis/ale'
+Plug 'dyng/ctrlsf.vim'
+Plug 'ervandew/supertab'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
-"syntax check
-"Plug 'w0rp/ale'
-
-"syntax highlight
-"Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
 colorscheme dracula
 
-"ale
-"let b:ale_fixers = [ 'pyright' ]
-
-
-"coc
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-nmap <silent> gd <Plug>(coc-definition)
-
-"coc-snippets
-imap <C-l> <Plug>(coc-snippets-expand)
-let g:coc_snippet_next = '<c-j>'
-let g:coc_snippet_prev = '<c-k>'
-imap <C-j> <Plug>(coc-snippets-expand-jump)
-
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-let g:coc_snippet_next = '<tab>'
+"ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 
 "airline
