@@ -16,7 +16,7 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'preservim/nerdcommenter'
 
 " quickrun
-Plug 'skywind3000/asyncrun.vim', {'for' :['c']}
+Plug 'skywind3000/asyncrun.vim', {'for' :['c','python']}
 
 " syntax highlight
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins', 'for' :['python']}
@@ -63,7 +63,7 @@ colorscheme vividchalk
 
 "ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-f>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 "markdown
@@ -149,6 +149,15 @@ let g:asyncrun_open = 4
 
 nnoremap <F2> :AsyncRun gcc % -o %<<CR>
 
-nnoremap <F3> : AsyncRun ./%<<CR>
+nnoremap <F3> :AsyncRun ./%<<CR>
 
-nnoremap <F4> :call asyncrun#quickfix_toggle(6)<CR>
+nnoremap <F4> :AsyncRun python3 %<CR>
+
+nnoremap <F5> :call asyncrun#quickfix_toggle(6)<CR>
+
+nnoremap <Leader>ga :AsyncRun git add .<CR>
+
+nnoremap <Leader>gc :AsyncRun git commit -m 'new commit'<CR>
+
+nnoremap <Leader>gp :AsyncRun git push origin<>CR
+
