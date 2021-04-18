@@ -32,6 +32,7 @@ autocmd BufNewFile *.c 0r ~/.config/nvim/skeleton/skeleton.c
 autocmd BufNewFile *.sh 0r ~/.config/nvim/skeleton/skeleton.sh
 autocmd BufNewFile * normal G
 
+set dictionary=/Users/zerrari/.config/nvim/dict/c.dict
 
 LoadScript init/init-basic.vim
 
