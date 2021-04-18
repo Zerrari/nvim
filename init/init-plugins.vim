@@ -16,7 +16,7 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'preservim/nerdcommenter'
 
 " quickrun
-Plug 'skywind3000/asyncrun.vim', {'for' :['c','python']}
+Plug 'skywind3000/asyncrun.vim' 
 
 " syntax highlight
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins', 'for' :['python']}
@@ -157,7 +157,18 @@ nnoremap <F5> :call asyncrun#quickfix_toggle(6)<CR>
 
 nnoremap <Leader>ga :AsyncRun git add .<CR>
 
-nnoremap <Leader>gc :AsyncRun git commit -m 'new commit'<CR>
+nnoremap <Leader>gc :AsyncRun git commit -m 
 
-nnoremap <Leader>gp :AsyncRun git push origin<>CR
+nnoremap <Leader>gp :AsyncRun git push origin<CR>
+
+" tagbar
+nnoremap <Leader>t :Tagbar<CR>
+
+let g:tagbar_map_jump = 'f'
+
+let g:tagbar_width = 40 
+
+let g:tagbar_autoclose = 1
+
+let g:tagbar_autofocus = 1
 

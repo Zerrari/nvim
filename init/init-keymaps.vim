@@ -2,6 +2,7 @@ let mapleader = ' '
 
 nmap <leader>w :w<cr>
 nmap <leader>q :q<cr>
+nmap <Leader>s :source ~/.config/nvim/init.vim<cr>
 inoremap jj <Esc>
 nmap <F1> :e ~/.config/nvim/init.vim<cr>
 
