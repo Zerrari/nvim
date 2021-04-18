@@ -20,20 +20,20 @@ $ :PlugInstall
 
 | key     | function           |
 |---------|--------------------|
-| <F2>    | 编译当前C文件      |
-| <F3>    | 运行当前C文件      |
-| <F4>    | 运行当前python文件 |
-| <F5>    | 关闭quickfix窗口   |
-| <spa>ga | git add .          |
-| <spa>gc | git commit - m     |
-| <spa>gp | git push origin    |
+| &lt;F2&gt;    | 编译当前C文件      |
+| &lt;F3&gt;    | 运行当前C文件      |
+| &lt;F4&gt;    | 运行当前python文件 |
+| &lt;F5&gt;    | 关闭quickfix窗口   |
+| &lt;spa&gt;ga | git add .          |
+| &lt;spa&gt;gc | git commit - m     |
+| &lt;spa&gt;gp | git push origin    |
 
 ### Tagbar
 
 | key    | function        |
 |--------|-----------------|
-| <spa>t | tagbar toggle   |
-| f      | jump to the tag |
+| &lt;spa&gt;t | tagbar toggle   |
+| f      | jump to the tag | 
 
 ### Markdown
 
@@ -51,5 +51,6 @@ $ :PlugInstall
 | ;,  | insert <++>           |
 
 **normal mode** 
-Type **<spa>p** to preview markdown.
+
+Type **&lt;spa&gt;p** to preview markdown.
 
