@@ -4,8 +4,8 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'flazz/vim-colorschemes'
 
 " airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
 
 " edit
 Plug 'jiangmiao/auto-pairs'
@@ -57,6 +57,10 @@ Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips',{'for' :['c','python']}
 Plug 'honza/vim-snippets',{'for':['c','python']}
 
+" ranger
+Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
+
 call plug#end()
 
 colorscheme vividchalk
@@ -72,7 +76,7 @@ let g:vim_markdown_conceal_code_blocks = 0
 let g:vim_markdown_folding_disabled = 1
 
 "airline
-let g:airline_theme='luna'
+"let g:airline_theme='luna'
 
 "vim-easymotion
 map <Leader>l <Plug>(easymotion-bd-jk)

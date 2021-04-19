@@ -18,22 +18,23 @@ $ :PlugInstall
 
 ### Asyncrun
 
-| key     | function           |
-|---------|--------------------|
+| key           | function           |
+|---------------|--------------------|
 | &lt;F2&gt;    | 编译当前C文件      |
 | &lt;F3&gt;    | 运行当前C文件      |
 | &lt;F4&gt;    | 运行当前python文件 |
 | &lt;F5&gt;    | 关闭quickfix窗口   |
 | &lt;spa&gt;ga | git add .          |
-| &lt;spa&gt;gc | git commit - m     |
+| &lt;spa&gt;gc | git commit -m      |
 | &lt;spa&gt;gp | git push origin    |
+
 
 ### Tagbar
 
-| key    | function        |
-|--------|-----------------|
+| key          | function        |
+|--------------|-----------------|
 | &lt;spa&gt;t | tagbar toggle   |
-| f      | jump to the tag | 
+| f            | jump to the tag |
 
 ### Markdown
 
@@ -53,4 +54,24 @@ $ :PlugInstall
 **normal mode** 
 
 Type **&lt;spa&gt;p** to preview markdown.
+
+### Ranger
+
+Type **&lt;spa&gt;f** to toggle Ranger.
+
+### Nerdcommenter
+
+### Easy-motion
+
+## Keymaps
+
+| key          | function                |
+|--------------|-------------------------|
+| &lt;spa&gt;j | move to previous buffer |
+| &lt;spa&gt;k | move to next buffer     |
+| &lt;spa&gt;c | close current buffer    |
+| &lt;F1&gt;   | open the config file    |
+| &lt;spa&gt;w | save the buffer         |
+| &lt;spa&gt;q | quit the vim            |
+| &lt;spa&gt;s | load the config file    |
 

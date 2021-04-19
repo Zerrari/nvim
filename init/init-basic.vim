@@ -11,10 +11,12 @@ set mouse=
 set wildmenu
 
 " 设置命令行高度
-set cmdheight=1
+set cmdheight=1   
+
+set cwh=1
 
 " 关闭自动换行
-set nowrap
+set wrap
 
 " 显示匹配的括号
 set showmatch
@@ -59,6 +61,11 @@ set softtabstop=4
 set cindent
 set expandtab
 set smarttab
+
+set statusline=%t%m%r%=%l
+
+highlight StatusLine ctermfg=14
+highlight statusline ctermbg=gray
 
 "----------------------------------------------------------------------
 " 搜索设置
