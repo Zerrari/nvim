@@ -67,6 +67,11 @@ set statusline=%t%m%r%=%l
 highlight StatusLine ctermfg=14
 highlight statusline ctermbg=gray
 
+iabbrev sd self development
+iabbrev ct category
+iabbrev sm summary
+ 
+
 "----------------------------------------------------------------------
 " 搜索设置
 "----------------------------------------------------------------------

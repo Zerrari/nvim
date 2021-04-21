@@ -7,6 +7,8 @@ exec 'set rtp+='.s:home
 
 set rtp+=~/.vim
 
+set rtp+=/usr/local/opt/fzf
+
 let g:python3_host_prog = '/usr/local/opt/python@3.9/bin/python3.9'
 
 filetype on
@@ -39,3 +41,5 @@ LoadScript init/init-basic.vim
 LoadScript init/init-keymaps.vim
 
 LoadScript init/init-plugins.vim
+
+echo '>^.^<'

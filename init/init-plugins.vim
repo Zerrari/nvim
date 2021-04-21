@@ -46,6 +46,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 " search
 Plug 'kien/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
+Plug 'junegunn/fzf.vim'
 
 "tag 
 Plug 'preservim/tagbar',{'for' :['c','cpp']}
@@ -60,6 +61,11 @@ Plug 'honza/vim-snippets',{'for':['c','python']}
 " ranger
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
+
+" misc
+Plug 'wakatime/vim-wakatime'
+Plug 'robcsi/viewmaps.vim'
+
 
 call plug#end()
 
@@ -178,3 +184,12 @@ let g:tagbar_autoclose = 1
 
 let g:tagbar_autofocus = 1
 
+" waketime
+let g:wakatime_PythonBinary = '/usr/local/opt/python@3.9/bin/python3.9'
+
+" fzf
+nnoremap <Leader>ff :Files<CR>
+nnoremap <Leader>fb :Buffers<CR>
+
+"ranger
+nnoremap <Leader>r :Ranger<CR>

@@ -1,19 +1,21 @@
 let mapleader = ' '
 
-nmap <leader>w :w<cr>
-nmap <leader>q :q<cr>
-nmap <Leader>s :source ~/.config/nvim/init.vim<cr>
-inoremap jj <Esc>
-nmap <F1> :e ~/.config/nvim/init.vim<cr>
+noremap <leader>w :w<cr>
+noremap <leader>q :q<cr>
+noremap <Leader>s :source ~/.config/nvim/init.vim<cr>
+noremap <F1> :e ~/.config/nvim/init.vim<cr>
 
-map K 5k
-map J 5j 
+noremap K 5k
+noremap J 5j 
 noremap H ^
 noremap L $
 
-inoremap <c-a> <home>
-inoremap <c-e> <end>
-inoremap <c-d> <del>
+inoremap jj <Esc>
+inoremap <C-a> <home>
+inoremap <C-e> <end>
+inoremap <C-d> <del>
+inoremap <C-u> <Esc>gUawi
+nnoremap <C-e> mqA;<Esc>`q
 
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
