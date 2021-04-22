@@ -57,11 +57,23 @@ Type **&lt;spa&gt;p** to preview markdown.
 
 ### Ranger
 
-Type **&lt;spa&gt;f** to toggle Ranger.
+Type **&lt;spa&gt;r** to toggle Ranger.
+
+### FZF
+
+Type **&lt;spa&gt;ff** to search files.
+
+Type **&lt;spa&gt;fb** to switch buffers.
 
 ### Nerdcommenter
 
+Type **&lt;spa&gt;cc** to comment lines.
+
+Type **&lt;spa&gt;cu** to uncomment lines.
+
 ### Easy-motion
+
+Type **&lt;spa&gt;l** to jump to the line you want.
 
 ## Keymaps
 

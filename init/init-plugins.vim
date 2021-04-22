@@ -47,6 +47,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kien/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'junegunn/fzf.vim'
+Plug 'dyng/ctrlsf.vim'
 
 "tag 
 Plug 'preservim/tagbar',{'for' :['c','cpp']}
@@ -188,8 +189,20 @@ let g:tagbar_autofocus = 1
 let g:wakatime_PythonBinary = '/usr/local/opt/python@3.9/bin/python3.9'
 
 " fzf
-nnoremap <Leader>ff :Files<CR>
+nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>fb :Buffers<CR>
 
 "ranger
 nnoremap <Leader>r :Ranger<CR>
+
+"CtrlSf
+let g:ctrlsf_auto_close = {
+    \ "normal" : 1,
+    \ "compact": 1
+    \}
+
+let g:ctrlsf_auto_focus = {
+    \ "at": "start"
+    \ }
+
+let g:ctrlsf_default_root = 'cwd'
