@@ -1,15 +1,16 @@
 # Neovim
 
 ## Install
-
-| ;b  | insert a bold block   |
-| ;a  | insert a link         |
-| ;p  | insert an image       |
-| ;c  | inser a code block    |
-| ;h  | insert first heading  |
-| ;h2 | insert second heading |
-| ;f  | find a <++>           |
-| ;,  | insert <++>           |
+| command | function              |
+|---------|-----------------------|
+| ;b      | insert a bold block   |
+| ;a      | insert a link         |
+| ;p      | insert an image       |
+| ;c      | inser a code block    |
+| ;h      | insert first heading  |
+| ;h2     | insert second heading |
+| ;f      | find a <++>           |
+| ;,      | insert <++>           |
 
 **normal mode** 
 
