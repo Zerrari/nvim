@@ -15,6 +15,8 @@ set cmdheight=1
 
 set cwh=1
 
+set autochdir
+
 " 关闭自动换行
 set wrap
 
@@ -70,7 +72,7 @@ highlight statusline ctermbg=gray
 iabbrev sd self development
 iabbrev ct category
 iabbrev sm summary
- 
+
 
 "----------------------------------------------------------------------
 " 搜索设置

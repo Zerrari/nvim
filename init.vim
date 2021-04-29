@@ -34,12 +34,15 @@ autocmd BufNewFile *.c 0r ~/.config/nvim/skeleton/skeleton.c
 autocmd BufNewFile *.sh 0r ~/.config/nvim/skeleton/skeleton.sh
 autocmd BufNewFile * normal G
 
-set dictionary=/Users/zerrari/.config/nvim/dict/c.dict
+"autocmd FileType c set dictionary+=/Users/zerrari/.config/nvim/dict/c.dict
+
+"set complete+=k
 
 LoadScript init/init-basic.vim
 
 LoadScript init/init-keymaps.vim
 
 LoadScript init/init-plugins.vim
+
 
 echo '>^.^<'

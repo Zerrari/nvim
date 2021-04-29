@@ -17,10 +17,11 @@ Plug 'preservim/nerdcommenter'
 
 " quickrun
 Plug 'skywind3000/asyncrun.vim' 
+Plug 'zerrari/AwesomeRun'
 
 " syntax highlight
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins', 'for' :['python']}
-Plug 'sheerun/vim-polyglot'
+Plug 'vim-jp/vim-cpp',{'for' : ['c','cpp']}
 
 " syntax check
 Plug 'dense-analysis/ale',{'for': ['python','c']}
@@ -55,6 +56,7 @@ Plug 'preservim/tagbar',{'for' :['c','cpp']}
 "completion
 Plug 'ervandew/supertab'
 
+
 " snippets
 Plug 'SirVer/ultisnips',{'for' :['c','python']}
 Plug 'honza/vim-snippets',{'for':['c','python']}
@@ -65,8 +67,6 @@ Plug 'rbgrouleff/bclose.vim'
 
 " misc
 Plug 'wakatime/vim-wakatime'
-Plug 'robcsi/viewmaps.vim'
-
 
 call plug#end()
 
@@ -86,11 +86,11 @@ let g:vim_markdown_folding_disabled = 1
 "let g:airline_theme='luna'
 
 "vim-easymotion
-map <Leader>l <Plug>(easymotion-bd-jk)
-nmap <Leader>l <Plug>(easymotion-overwin-line)
+map <Leader>el <Plug>(easymotion-bd-jk)
+nmap <Leader>el <Plug>(easymotion-overwin-line)
 
-"map  <Leader>w <Plug>(easymotion-bd-w)
-"nmap <Leader>w <Plug>(easymotion-overwin-w)
+map  <Leader>ew <Plug>(easymotion-bd-w)
+nmap <Leader>ew <Plug>(easymotion-overwin-w)
 
 
 "rainbow
@@ -160,11 +160,11 @@ let g:rainbow_conf = {
 " asyncrun
 let g:asyncrun_open = 4
 
-nnoremap <F2> :AsyncRun gcc % -o %<<CR>
+"nnoremap <F2> :AsyncRun gcc % -o %<<CR>
 
-nnoremap <F3> :AsyncRun ./%<<CR>
+"nnoremap <F3> :AsyncRun ./%<<CR>
 
-nnoremap <F4> :AsyncRun python3 %<CR>
+"nnoremap <F4> :AsyncRun python3 %<CR>
 
 nnoremap <F5> :call asyncrun#quickfix_toggle(6)<CR>
 
@@ -188,14 +188,17 @@ let g:tagbar_autofocus = 1
 " waketime
 let g:wakatime_PythonBinary = '/usr/local/opt/python@3.9/bin/python3.9'
 
+"ranger
+nnoremap <Leader>r :Ranger<CR>
+
 " fzf
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>fb :Buffers<CR>
 
-"ranger
-nnoremap <Leader>r :Ranger<CR>
+"CtrlSF
 
-"CtrlSf
+nnoremap <Leader>d :CtrlSF  
+
 let g:ctrlsf_auto_close = {
     \ "normal" : 1,
     \ "compact": 1
@@ -206,3 +209,19 @@ let g:ctrlsf_auto_focus = {
     \ }
 
 let g:ctrlsf_default_root = 'cwd'
+
+
+" ale
+
+let g:ale_set_highlights = 0
+
+let g:ale_linters = {
+\   'c': ['clang'],
+\   'python': ['pylint'],
+\}
+
+" AwesomeRun
+nnoremap <F2> :AwesomeRun gcc % -o %<<cr>
+nnoremap <F3> :AwesomeRun ./%<<cr>
+nnoremap <F4> :AwesomeRun python3 %<cr>
+nnoremap <F5> :QuickfixClose<cr>
