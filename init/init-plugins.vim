@@ -68,6 +68,9 @@ Plug 'rbgrouleff/bclose.vim'
 " misc
 Plug 'wakatime/vim-wakatime'
 
+" dash
+Plug 'rizzatti/dash.vim'
+
 call plug#end()
 
 colorscheme vividchalk
