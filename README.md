@@ -18,12 +18,12 @@ $ :PlugInstall
 
 ### AwesomeRun
 
-| key           | function           |
-|---------------|--------------------|
-| &lt;F2&gt;    | 编译当前C文件      |
-| &lt;F3&gt;    | 运行当前C文件      |
-| &lt;F4&gt;    | 运行当前python文件 |
-| &lt;F5&gt;    | 关闭quickfix窗口   |
+| key        | function                |
+|------------|-------------------------|
+| &lt;F2&gt; | compile current c file  |
+| &lt;F3&gt; | run current c file      |
+| &lt;F4&gt; | run current python file |
+| &lt;F5&gt; | close quickfix window   |
 
 
 ### Tagbar
