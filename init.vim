@@ -32,6 +32,7 @@ autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
 autocmd BufNewFile *.c 0r ~/.config/nvim/skeleton/skeleton.c
 autocmd BufNewFile *.sh 0r ~/.config/nvim/skeleton/skeleton.sh
+autocmd BufNewFile *.h 0r ~/.config/nvim/skeleton/skeleton.h
 autocmd BufNewFile * normal G
 
 "autocmd FileType c set dictionary+=/Users/zerrari/.config/nvim/dict/c.dict

@@ -2,10 +2,13 @@ call plug#begin('~/.config/nvim/plugged')
 
 "colorschemes
 Plug 'flazz/vim-colorschemes'
+Plug 'ajmwagar/vim-deus'
 
 " airline
 "Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
+Plug 'liuchengxu/eleline.vim'
+Plug 'ojroques/vim-scrollstatus'
 
 " edit
 Plug 'jiangmiao/auto-pairs'
@@ -17,7 +20,7 @@ Plug 'preservim/nerdcommenter'
 
 " quickrun
 Plug 'skywind3000/asyncrun.vim' 
-Plug 'zerrari/AwesomeRun'
+"Plug 'zerrari/AwesomeRun'
 
 " syntax highlight
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins', 'for' :['python']}
@@ -38,7 +41,8 @@ Plug 'iamcco/markdown-preview.nvim', {'for' :['markdown']}
 Plug 'dhruvasagar/vim-table-mode',{'for' :['markdown']}
 
 " buffer title
-Plug 'romgrk/barbar.nvim'
+"Plug 'romgrk/barbar.nvim'
+Plug 'mg979/vim-xtabline'
 
 " buffer icons
 Plug 'ryanoasis/vim-devicons'
@@ -67,18 +71,20 @@ Plug 'rbgrouleff/bclose.vim'
 
 " misc
 Plug 'wakatime/vim-wakatime'
+Plug 'ycm-core/YouCompleteMe'
 
 " dash
 Plug 'rizzatti/dash.vim'
 
 call plug#end()
 
-colorscheme vividchalk
+"colorscheme vividchalk
+colorscheme deus
 
 "ultisnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+let g:UltiSnipsExpandTrigger="<c-s>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 "markdown
 let g:vim_markdown_conceal = 0
@@ -111,14 +117,12 @@ let g:indentLine_color_term = 238
 let g:indentLine_defaultGroup = 'SpecialKey'
 
 "barbar
-let bufferline = get(g:, 'bufferline', {})
-let bufferline.animation = v:true
-let bufferline.icons = v:true
-let bufferline.auto_hide = v:false
-let bufferline.icon_custom_colors = v:true
-let bufferline.maximum_padding = 1
-
-
+"let bufferline = get(g:, 'bufferline', {})
+"let bufferline.animation = v:true
+"let bufferline.icons = v:true
+"let bufferline.auto_hide = v:false
+"let bufferline.icon_custom_colors = v:true
+"let bufferline.maximum_padding = 1
 
 "vim-table-mode
 function! s:isAtStartOfLine(mapping)
@@ -163,11 +167,11 @@ let g:rainbow_conf = {
 " asyncrun
 let g:asyncrun_open = 4
 
-"nnoremap <F2> :AsyncRun gcc % -o %<<CR>
+nnoremap <F2> :AsyncRun gcc % -o %<<CR>
 
-"nnoremap <F3> :AsyncRun ./%<<CR>
+nnoremap <F3> :AsyncRun ./%<<CR>
 
-"nnoremap <F4> :AsyncRun python3 %<CR>
+nnoremap <F4> :AsyncRun python3 %<CR>
 
 nnoremap <F5> :call asyncrun#quickfix_toggle(6)<CR>
 
@@ -223,8 +227,18 @@ let g:ale_linters = {
 \   'python': ['pylint'],
 \}
 
-" AwesomeRun
-nnoremap <F2> :AwesomeRun gcc % -o %<<cr>
-nnoremap <F3> :AwesomeRun ./%<<cr>
-nnoremap <F4> :AwesomeRun python3 %<cr>
-nnoremap <F5> :QuickfixClose<cr>
+
+" YCM
+let g:ycm_language_server = 
+  \ [ 
+  \   {
+  \     'name': 'clang',
+  \     'cmdline': [ '/usr/bin/clang' ],
+  \     'filetypes': [ 'c' ]
+  \   },
+  \ ]
+
+
+let g:ycm_global_ycm_extra_conf = '~/.config/nvim/plugged/YouCompleteMe/.ycm_extra_conf.py'
+
+let g:eleline_slim = 1
